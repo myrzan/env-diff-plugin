@@ -1,5 +1,5 @@
-# Kolesa EnvDiff Notifier 🔍
-
+# 🔍 Kolesa EnvDiff Notifier
+<img src="pluginIcon.svg" width="60" height="60" alt="EnvDiff Icon" align="right"/>
 🔧 IntelliJ IDEA plugin for comparing `.env` files (like `.env` vs `env.testing`) and showing you the differences instantly. Designed for teams who maintain both local and test/staging environments.
 
 ---
