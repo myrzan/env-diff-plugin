@@ -14,7 +14,7 @@ public class EnvDiffDialog extends DialogWrapper {
     public EnvDiffDialog(@Nullable Project project, String diff) {
         super(project);
         this.diff = diff;
-        setTitle("EnvDiff: Differences Found");
+        setTitle(EnvDiffBundle.message("plugin.diff_found_title"));
         init(); // обязательный вызов
     }
 

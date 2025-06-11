@@ -14,8 +14,21 @@
          Simple HTML elements (text formatting, paragraphs, and lists) can be added inside of <![CDATA[ ]]> tag.
          Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-description -->
     <description><![CDATA[
-      EnvDiff Notifier is a lightweight IntelliJ plugin that automatically compares your local .env file<br>
-      with a shared .env.testing (or any remote/test config) and highlights differences directly in the IDE. <br/>
+        <p><b>EnvDiff Notifier</b> – compares <code>.env</code> and <code>env.testing</code> files after <code>git pull</code>.</p>
+        <p>🔔 Notifies you if differences are found.</p>
+        <ul>
+          <li>Supports <code>envdiffignore.json</code> to ignore keys</li>
+          <li>Auto-generates <code>envdiffignore.default.json</code></li>
+          <li>Customizable filenames via Settings → EnvDiff</li>
+        </ul>
+        <hr/>
+        <p><b>RU:</b> Плагин сравнивает <code>.env</code> и <code>env.testing</code> после <code>git pull</code>.</p>
+        <p>🔔 Показывает уведомление, если найдены отличия.</p>
+        <ul>
+          <li>Поддерживает <code>envdiffignore.json</code> для исключений</li>
+          <li>Автоматически создаёт <code>envdiffignore.default.json</code></li>
+          <li>Можно задать свои имена файлов в Settings → EnvDiff</li>
+        </ul>
     ]]></description>
 
     <idea-version since-build="221.0" until-build="255.*"/>
@@ -26,7 +39,7 @@
     <depends>com.intellij.modules.vcs</depends>
 
     <extensions defaultExtensionNs="com.intellij">
-        <startupActivity implementation="kz.kolesa.EnvDiffGitPullListener"/>
+        <postStartupActivity implementation="kz.kolesa.EnvDiffStartupActivity"/>
         <applicationService serviceImplementation="kz.kolesa.EnvDiffSettings"/>
         <projectConfigurable instance="kz.kolesa.EnvDiffConfigurable" displayName="EnvDiff Notifier"/>
         <notificationGroup id="EnvDiff Notifications"
@@ -38,7 +51,7 @@
     <actions>
         <action id="EnvDiff.CheckAction"
                 class="kz.kolesa.EnvDiffCheckAction"
-                text="Check .env Diff"
+                text="🔍 Check .env Diff"
                 description="Check differences between .env and .env.testing">
             <add-to-group group-id="ToolsMenu" anchor="last"/>
         </action>

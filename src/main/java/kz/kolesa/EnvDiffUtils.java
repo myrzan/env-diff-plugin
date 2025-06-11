@@ -30,9 +30,10 @@ public class EnvDiffUtils {
         if (!file.exists()) return ignored;
 
         String json = new String(Files.readAllBytes(file.toPath()));
-        Matcher matcher = Pattern.compile("\"([^\"]+)\"").matcher(json);
-        while (matcher.find()) {
-            ignored.add(matcher.group(1));
+        com.google.gson.JsonObject obj = com.google.gson.JsonParser.parseString(json).getAsJsonObject();
+        com.google.gson.JsonArray arr = obj.getAsJsonArray("DIFF_IGNORE");
+        for (com.google.gson.JsonElement el : arr) {
+            ignored.add(el.getAsString());
         }
 
         return ignored;

@@ -11,7 +11,7 @@ public class EnvDiffSettings implements PersistentStateComponent<EnvDiffSettings
     public static class State {
         public String envFile = ".env";
         public String testingFile = "env.testing";
-        public String ignoreFile = ".envdiffignore.json";
+        public String ignoreFile = "envdiffignore.json";
     }
 
     private State state = new State();
