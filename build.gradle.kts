@@ -5,7 +5,7 @@ plugins {
 }
 
 group = "kz.kolesa"
-version = "1.0"
+version = "1.1"
 
 repositories {
     mavenCentral()
@@ -14,7 +14,7 @@ repositories {
 // Configure Gradle IntelliJ Plugin
 // Read more: https://plugins.jetbrains.com/docs/intellij/tools-gradle-intellij-plugin.html
 intellij {
-    version.set("2023.2.8")
+    version.set("2023.1")
     type.set("IC") // Target IDE Platform
     updateSinceUntilBuild.set(false)
 }
@@ -27,11 +27,6 @@ tasks {
     }
     withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
         kotlinOptions.jvmTarget = "17"
-    }
-
-    patchPluginXml {
-        sinceBuild.set("221.0")
-        untilBuild.set("255.*")
     }
 
     signPlugin {

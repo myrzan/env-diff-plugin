@@ -1,5 +1,6 @@
 package kz.kolesa;
 
+import com.intellij.BundleBase;
 import com.intellij.CommonBundle;
 import org.jetbrains.annotations.NonNls;
 import org.jetbrains.annotations.NotNull;
@@ -17,7 +18,7 @@ public class EnvDiffBundle {
     static {
         Locale locale = Locale.getDefault();
         // Принудительно обрезаем региональную часть: ru_KZ → ru
-        Locale normalizedLocale = new Locale(locale.getLanguage());
+        Locale normalizedLocale = Locale.forLanguageTag(locale.getLanguage());
 
         ResourceBundle bundle;
         try {
@@ -34,6 +35,6 @@ public class EnvDiffBundle {
     }
 
     public static String message(@NotNull String key, @NotNull Object... params) {
-        return CommonBundle.message(BUNDLE, key, params);
+        return BundleBase.message(BUNDLE, key, params);
     }
 }
